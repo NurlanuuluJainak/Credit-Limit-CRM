@@ -1,13 +1,16 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchClients } from '../entities/client/api/clientApi'
 import { setClients, setLoading, setError } from '../entities/client/model/clientSlice'
-import type {AppDispatch} from "../app/store.ts";
+import type { AppDispatch, RootState } from "../app/store"
 
 export const useClientLogic = () => {
     const dispatch = useDispatch<AppDispatch>()
+    const { clients } = useSelector((s: RootState) => s.clients)
 
     useEffect(() => {
+        if (clients.length > 0) return
+
         const load = async () => {
             dispatch(setLoading(true))
             try {
@@ -21,5 +24,5 @@ export const useClientLogic = () => {
         }
 
         load()
-    }, [dispatch])
+    }, [dispatch, clients.length])
 }

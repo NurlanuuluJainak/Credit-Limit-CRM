@@ -9,7 +9,7 @@ interface ClientState {
 }
 
 const initialState: ClientState = {
-    clients: [],
+    clients: JSON.parse(localStorage.getItem('clients') || '[]'),
     logs: JSON.parse(localStorage.getItem('sessionLogs') || '[]'),
     loading: false,
     error: null
@@ -21,12 +21,14 @@ const clientSlice = createSlice({
     reducers: {
         setClients(state, action: PayloadAction<Client[]>) {
             state.clients = action.payload
+            localStorage.setItem('clients', JSON.stringify(state.clients))
         },
 
         updateClient(state, action: PayloadAction<Client>) {
             const index = state.clients.findIndex(c => c.id === action.payload.id)
             if (index !== -1) {
                 state.clients[index] = action.payload
+                localStorage.setItem('clients', JSON.stringify(state.clients))
             }
         },
 
@@ -39,6 +41,11 @@ const clientSlice = createSlice({
             state.logs.push(newLog)
 
             localStorage.setItem('sessionLogs', JSON.stringify(state.logs))
+        },
+
+        clearClients(state) {
+            state.clients = []
+            localStorage.removeItem('clients')
         },
 
         clearLogs(state) {
@@ -56,6 +63,7 @@ const clientSlice = createSlice({
     }
 })
 
-export const { setClients, updateClient, addLog, clearLogs, setLoading, setError } = clientSlice.actions
+export const { setClients, updateClient, addLog, clearLogs, clearClients, setLoading, setError } = clientSlice.actions
+
 
 export default clientSlice.reducer

@@ -35,3 +35,26 @@
     font-weight: 600;
     margin-right: 10px;
 }
+
+/* Стили для кнопки Очистить лог */
+.session-log button {
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.session-log button:hover {
+    background-color: #27632a;
+    transform: translateY(-1px);
+}
+
+.session-log button:active {
+    background-color: #1f4b1f;
+    transform: translateY(0);
+}
