@@ -1,0 +1,59 @@
+.table-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.table-controls input,
+.table-controls select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.table-controls input:focus,
+.table-controls select:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.client-table th,
+.client-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.client-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.client-table tbody tr:hover {
+    background-color: #f0fff0;
+    cursor: pointer;
+}
+
+.client-table tbody tr:last-child td {
+    border-bottom: none;
+}

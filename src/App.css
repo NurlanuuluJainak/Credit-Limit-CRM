@@ -1,0 +1,19 @@
+.app-container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+header h1 {
+    margin: 0 0 30px 0;
+    font-size: 28px;
+    color: #2e7d32;
+    text-align: center;
+}
+
+main {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*gap: 30px;*/
+}
